@@ -27,6 +27,7 @@ def main():
             if event.type == pygame.QUIT:
                 return
         
+        player.update(dt)
         screen.fill("black")  # Fill the screen with a color (black in this case)
         player.draw(screen)
         pygame.display.flip()  
