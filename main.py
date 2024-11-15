@@ -5,6 +5,7 @@ from player import Player
 from asteroid import Asteroid
 from asteroidField import AsteroidField
 from shot import Shot
+from explosion import Explosion
 
 def main():
     pygame.init()
@@ -45,10 +46,22 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+        score = 0
+
         for asteroid in asteroids:
             for shot in shots:
                 if asteroid.collision_check(shot):
                     asteroid.split()
+                    explosion = Explosion(asteroid.position, asteroid.radius)
+                    updatable.add(explosion)
+                    drawable.add(explosion)
+                    score += 5
+
+
+
+        font = pygame.font.Font(None, 36)
+        score_text = font.render(f"Score: {score}", True, "white")
+        screen.blit(score_text, (10, 10))
 
 
         pygame.display.flip()  
