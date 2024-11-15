@@ -7,7 +7,7 @@ Skeleton of the classic asteroids game.
 1. ``pip install pygame ``
 
 2. `` git clone https://github.com/yoelleghesse/asteroids
-cd asteroids
+&& cd asteroids
 ``
 
 ### Run
