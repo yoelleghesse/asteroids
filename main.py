@@ -27,6 +27,7 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     dt = 0
+    score = 0
 
     while True:
         for event in pygame.event.get():
@@ -46,16 +47,15 @@ def main():
                 print("Game over!")
                 sys.exit()
 
-        score = 0
-
         for asteroid in asteroids:
             for shot in shots:
                 if asteroid.collision_check(shot):
                     asteroid.split()
                     explosion = Explosion(asteroid.position, asteroid.radius)
+                    score += 5
                     updatable.add(explosion)
                     drawable.add(explosion)
-                    score += 5
+                    
 
 
 
